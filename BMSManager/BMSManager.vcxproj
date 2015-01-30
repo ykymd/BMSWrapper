@@ -79,11 +79,13 @@
     <ClInclude Include="BMSWrapper.h" />
     <ClInclude Include="Chart.h" />
     <ClInclude Include="BMSHeader.h" />
+    <ClInclude Include="FileReader.h" />
     <ClInclude Include="MyMath.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Chart.cpp" />
     <ClCompile Include="BMSHeader.cpp" />
+    <ClCompile Include="FileReader.cpp" />
     <ClCompile Include="MyMath.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

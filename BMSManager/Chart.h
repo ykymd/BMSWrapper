@@ -10,10 +10,12 @@ namespace BMS {
 	class Chart
 	{
 	public:
-		Chart();
+		Chart(const char* fileName);
 		~Chart();
 	private:
 		Header header;
+
+		bool openFile();
 	};
 
 }

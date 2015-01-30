@@ -2,11 +2,15 @@
 
 using namespace BMS;
 
-Chart::Chart()
+Chart::Chart(const char* fileName)
 {
 }
 
-
 Chart::~Chart()
 {
+}
+
+bool openFile()
+{
+
 }
