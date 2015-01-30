@@ -3,7 +3,7 @@
 //
 
 #pragma once
-#include "Header.h"
+#include "BMSHeader.h"
 
 namespace BMS {
 
@@ -13,7 +13,7 @@ namespace BMS {
 		Chart();
 		~Chart();
 	private:
-		Header bh;
+		Header header;
 	};
 
 }
