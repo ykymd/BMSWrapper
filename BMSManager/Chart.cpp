@@ -12,5 +12,5 @@ Chart::~Chart()
 
 bool openFile()
 {
-
+	return true;
 }

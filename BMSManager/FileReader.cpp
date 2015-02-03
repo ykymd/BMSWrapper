@@ -1,4 +1,4 @@
-#include "FileReader.h"
+#include "FileReader.hpp"
 #include <fstream>
 #include <iostream>
 #include <string>
@@ -18,20 +18,26 @@ void FileReader::load(const char* filePath)
 }
 
 // STLÇÃifstreamÇ…ÇÊÇÈì«Ç›çûÇ›
-void loadByStream(const char* filePath)
+void FileReader::loadByStream(const char* filePath)
 {
 	ifstream ifs(filePath);
+
 	if (ifs.fail())
 	{
-		throw "Can't open file";
+		cout << "Can't open file" << endl;
+		return;
 	}
 
 	string line;	// ì«Ç›çûÇ›ópï∂éöóÒ
-
 	while (getline(ifs, line))
 	{
 		// ì«Ç›çûÇÒÇæçsÇ©ÇÁâêÕÇçsÇ§
+		cout << line << endl;
 	}
 
 	ifs.close();
+}
+
+void FileReader::loadByDxLib(const char* filePath)
+{
 }

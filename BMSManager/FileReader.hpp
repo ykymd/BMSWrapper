@@ -4,6 +4,7 @@
 #pragma once
 
 namespace BMS {
+
 	class FileReader
 	{
 	public:
@@ -14,4 +15,5 @@ namespace BMS {
 		void loadByStream(const char* filePath); // STL‚Ìifstream‚É‚æ‚é“Ç‚İ‚İ
 		void loadByDxLib(const char* filePath);	// DXƒ‰ƒCƒuƒ‰ƒŠŠÖ”‚É‚æ‚é“Ç‚İ‚İ
 	};
+
 }

@@ -39,7 +39,9 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup />
+  <PropertyGroup>
+    <NuGetPackageImportStamp>c257887e</NuGetPackageImportStamp>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <PrecompiledHeader>
@@ -79,18 +81,27 @@
     <ClInclude Include="BMSWrapper.h" />
     <ClInclude Include="Chart.h" />
     <ClInclude Include="BMSHeader.h" />
-    <ClInclude Include="FileReader.h" />
-    <ClInclude Include="Tokenizer.h" />
-    <ClInclude Include="MyMath.h" />
+    <ClInclude Include="Commands.h" />
+    <ClInclude Include="FileReader.hpp" />
+    <ClInclude Include="Lexer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Chart.cpp" />
     <ClCompile Include="BMSHeader.cpp" />
     <ClCompile Include="FileReader.cpp" />
-    <ClCompile Include="Tokenizer.cpp" />
-    <ClCompile Include="MyMath.cpp" />
+    <ClCompile Include="Lexer.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
+    <Import Project="..\packages\boost.1.57.0.0\build\native\boost.targets" Condition="Exists('..\packages\boost.1.57.0.0\build\native\boost.targets')" />
   </ImportGroup>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>このプロジェクトは、このコンピューターにはない NuGet パッケージを参照しています。これらをダウンロードするには、NuGet パッケージの復元を有効にしてください。詳細については、http://go.microsoft.com/fwlink/?LinkID=322105 を参照してください。不足しているファイルは {0} です。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\boost.1.57.0.0\build\native\boost.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\boost.1.57.0.0\build\native\boost.targets'))" />
+  </Target>
 </Project>
