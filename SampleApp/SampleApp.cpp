@@ -3,8 +3,8 @@
 
 #include "stdafx.h"
 
-#include <iostream>
 #include "FileReader.hpp"
+#include "Lexer.h"
 
 using namespace std;
 using namespace BMS;
@@ -13,12 +13,14 @@ using namespace BMS;
 
 int main()
 {
-	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_CHECK_ALWAYS_DF | _CRTDBG_LEAK_CHECK_DF);
-
 	FileReader file;
-	file.loadByStream("test.txt");
+	file.loadByStream("kotohurunushi_hard.bme");
 
+	//string str = "#PLAYER 1";
+	//Lexer lexer;
+	//lexer.split(str,' ');
 
+	//cout << get<0>(lexer.tokenize("#PLAYER 1", ":", '#')) << endl;
 
 	return 0;
 }
