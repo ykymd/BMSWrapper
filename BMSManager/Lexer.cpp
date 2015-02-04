@@ -1,11 +1,9 @@
 #include "Lexer.h"
-#include "Commands.h"
 
 #include <boost/algorithm/string.hpp>
 #include <vector>
 
 using namespace std;
-using namespace BMS::BM98;
 
 Lexer::Lexer()
 {

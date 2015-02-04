@@ -1,5 +1,6 @@
 #include "FileReader.hpp"
 #include "Lexer.h"
+#include "Parser.h"
 
 #include <fstream>
 #include <iostream>
@@ -25,6 +26,7 @@ void FileReader::loadByStream(const char* filePath)
 {
 	ifstream ifs(filePath);
 	Lexer lexer;	// š‹å‰ğÍŠí
+	Parser parser;	// \•¶‰ğÍŠí
 
 	if (ifs.fail())
 	{
@@ -41,9 +43,14 @@ void FileReader::loadByStream(const char* filePath)
 		cout << line << endl;
 
 		// š‹å‰ğÍ‚ğs‚¤
-		cout << get<0>(lexer.tokenize(line, ':', '#')) << endl;
-		//word = lexer.tokenize(line, " @:", '#');
-		//cout << word.front() << endl;
+		string cmd = get<0>(lexer.tokenize(line, ':', '#'));
+
+		auto num = parser.commandTypeInterface(cmd.c_str(), cmd.length());
+		
+		if (num != -1 && num != -2){
+			cout << "	" <<cmd << endl;
+			cout << "	" <<num << endl;
+		}
 	}
 
 	ifs.close();

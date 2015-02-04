@@ -84,12 +84,14 @@
     <ClInclude Include="Commands.h" />
     <ClInclude Include="FileReader.hpp" />
     <ClInclude Include="Lexer.h" />
+    <ClInclude Include="Parser.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Chart.cpp" />
     <ClCompile Include="BMSHeader.cpp" />
     <ClCompile Include="FileReader.cpp" />
     <ClCompile Include="Lexer.cpp" />
+    <ClCompile Include="Parser.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
