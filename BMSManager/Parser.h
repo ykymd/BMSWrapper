@@ -11,4 +11,3 @@ public:
 	// コマンド部分の型推論を行う
 	int commandTypeInterface(const char* command, int size);
 };
-

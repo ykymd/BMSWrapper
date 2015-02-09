@@ -13,9 +13,8 @@ namespace BMS {
 		Chart(const char* fileName);
 		~Chart();
 	private:
-		Header header;
-
-		bool openFile();
+		std::string fileName;
+		Header header;		
 	};
 
 }

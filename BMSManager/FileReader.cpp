@@ -10,16 +10,15 @@
 using namespace BMS;
 using namespace std;
 
-// ファイル名を指定して読み込み
-FileReader::FileReader(){}
+// ファイルパスを指定して読み込み
+FileReader::FileReader(const char* filePath)
+{
+	// 環境に応じて、適切な処理を行うようにする
+	loadByStream(filePath);
+
+}
 
 FileReader::~FileReader(){}
-
-// ファイルパスを指定して読み込み
-void FileReader::load(const char* filePath)
-{
-	loadByStream(filePath);
-}
 
 // STLのifstreamによる読み込み
 void FileReader::loadByStream(const char* filePath)
@@ -40,9 +39,13 @@ void FileReader::loadByStream(const char* filePath)
 	while (getline(ifs, line))
 	{
 		// 読み込んだ行から解析を行う
-		cout << line << endl;
+		//cout << line << endl;
+
+		// 行データを保存する
+		data.push_back(line);
 
 		// 字句解析を行う
+		/*
 		string cmd = get<0>(lexer.tokenize(line, ':', '#'));
 
 		auto num = parser.commandTypeInterface(cmd.c_str(), cmd.length());
@@ -51,6 +54,7 @@ void FileReader::loadByStream(const char* filePath)
 			cout << "	" <<cmd << endl;
 			cout << "	" <<num << endl;
 		}
+		*/
 	}
 
 	ifs.close();

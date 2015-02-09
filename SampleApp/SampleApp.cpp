@@ -6,6 +6,9 @@
 #include "FileReader.hpp"
 #include "Lexer.h"
 
+#include <iostream>
+#include <tuple>
+
 using namespace std;
 using namespace BMS;
 
@@ -13,31 +16,23 @@ using namespace BMS;
 
 int main()
 {
-	FileReader file;
-	file.loadByStream("kotohurunushi_hard.bme");
+	FileReader file("kotohurunushi_hard.bme");
+	Lexer lexer;	// š‹å‰ğÍŠí
+	tuple<string, string> words;
 
-	//string str = "#PLAYER 1";
-	//Lexer lexer;
-	//lexer.split(str,' ');
+	for (auto line : file.data)
+	{
+		// š‹å‰ğÍ
+		words = lexer.tokenize(line, ':', '#');
 
-	//cout << get<0>(lexer.tokenize("#PLAYER 1", ":", '#')) << endl;
+		// ‹ó•¶š—ñ‚ÍœŠO‚·‚é
+		if (get<0>(words).size() == 0)
+			continue;
+
+		cout << get<0>(words) << endl;
+		cout << get<1>(words) << endl;
+	}
+
 
 	return 0;
 }
-
-/*
-void math()
-{
-	double a = 7.4;
-	int b = 99;
-
-	cout << "a + b = " <<
-		MathFuncs::MyMathFuncs::Add(a, b) << endl;
-	cout << "a - b = " <<
-		MathFuncs::MyMathFuncs::Subtract(a, b) << endl;
-	cout << "a * b = " <<
-		MathFuncs::MyMathFuncs::Multiply(a, b) << endl;
-	cout << "a / b = " <<
-		MathFuncs::MyMathFuncs::Divide(a, b) << endl;
-}
-*/

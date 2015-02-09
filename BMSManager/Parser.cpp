@@ -9,14 +9,13 @@ Parser::Parser()
 {
 }
 
-
 Parser::~Parser()
 {
 }
 
 bool isNumber(const char* str, int size)
 {
-	// •¶š”‚ª5‚Å‚È‚¯‚ê‚ÎƒGƒ‰[
+	// •¶š”‚ª5‚Å‚È‚¯‚ê‚Î‹KŠiŠO‚Æ‚İ‚È‚·
 	if (size != 5) return false;
 
 	for (auto i = 0; i<size; i++) {
