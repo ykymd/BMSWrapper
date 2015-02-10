@@ -61,7 +61,7 @@ Chart::Chart(const char* fileName)
 
 		// チャンネル指定が必要なものは、チャンネル取得を行う
 		auto channel = 0;
-		if (type = BMP || type == WAV || type == OBJECT)
+		if (type == WAV || type == BMP || type == OBJECT)
 			channel = getChannel(command);
 
 		// データ格納
@@ -95,6 +95,7 @@ void Chart::setData(int type, int channel, string data)
 		break;
 	case BPM:
 		header.bpm = stoi(data);
+		bpmChange.push_back(tuple<int, int>(0, stoi(data)));
 		break;
 	case PLAYLEVEL:
 		header.playLevel = stoi(data);
@@ -109,10 +110,10 @@ void Chart::setData(int type, int channel, string data)
 		header.total = stof(data);
 		break;
 	case WAV:
-		header.wav.at(channel) = data;
+		header.wav[channel] = data;
 		break;
 	case BMP:
-		header.bmp.at(channel) = data;
+		header.bmp[channel] = data;
 		break;
 	case STAGEFILE:
 		header.stageFile = data;
