@@ -3,36 +3,14 @@
 
 #include "stdafx.h"
 
-#include "FileReader.hpp"
-#include "Lexer.h"
-
-#include <iostream>
-#include <tuple>
+#include "Chart.h"
 
 using namespace std;
 using namespace BMS;
 
-//void math();
-
 int main()
 {
-	FileReader file("kotohurunushi_hard.bme");
-	Lexer lexer;	// š‹å‰ğÍŠí
-	tuple<string, string> words;
-
-	for (auto line : file.data)
-	{
-		// š‹å‰ğÍ
-		words = lexer.tokenize(line, ':', '#');
-
-		// ‹ó•¶š—ñ‚ÍœŠO‚·‚é
-		if (get<0>(words).size() == 0)
-			continue;
-
-		cout << get<0>(words) << endl;
-		cout << get<1>(words) << endl;
-	}
-
+	Chart chart("kotohurunushi_hard.bme");
 
 	return 0;
 }

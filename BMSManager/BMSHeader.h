@@ -10,7 +10,7 @@ namespace BMS {
 	public:
 		Header();
 		~Header();
-	private:
+
 		int player;	// ƒvƒŒƒCl”
 		std::string genre;
 		std::string title;
@@ -20,8 +20,8 @@ namespace BMS {
 		int rank;
 		int volWav;
 		float total;
-		std::unordered_map<std::string, int> wav;
-		std::unordered_map<std::string, int> bmp;
+		std::unordered_map<int, std::string> wav;
+		std::unordered_map<int, std::string> bmp;
 		std::string stageFile;
 		std::string midiFile;	// deprecated
 	};

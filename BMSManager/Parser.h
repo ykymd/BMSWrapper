@@ -1,13 +1,18 @@
 #pragma once
+#include <tuple>
+#include <string>
+#include "BMSHeader.h"
 
-class Parser
+using namespace std;
+
+namespace BMS
 {
-public:
-	Parser();
-	~Parser();
+	class Parser
+	{
+	public:
+		Parser();
+		~Parser();
 
-	void parse();
-
-	// コマンド部分の型推論を行う
-	int commandTypeInterface(const char* command, int size);
-};
+		void parse(int type, const tuple<string, string> &words, Header &header);
+	};
+}

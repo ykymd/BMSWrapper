@@ -1,8 +1,7 @@
 #include "Parser.h"
 #include "Commands.h"
 
-#include <string>
-
+using namespace BMS;
 using namespace BMS::BM98;
 
 Parser::Parser()
@@ -13,38 +12,56 @@ Parser::~Parser()
 {
 }
 
-bool isNumber(const char* str, int size)
+void Parser::parse(int type, const tuple<string, string> &words, Header &header)
 {
-	// 文字数が5でなければ規格外とみなす
-	if (size != 5) return false;
-
-	for (auto i = 0; i<size; i++) {
-		if (str[i] < '0' || str[i] > '9') {
-			return false;
-		}
-	}
-
-	return true;
-}
-
-int Parser::commandTypeInterface(const char* command, int size)
-{
-	// オブジェクト配置の形('#iiiii')か
-	// コマンド部分がすべて数値であるならオブジェ配置として返す
-	if (isNumber(command, size))
-		return OBJECT;
-	
-	// 規定されたコマンドであるか
-	auto cnt = 0;
-	for (auto pattern : BMS_COMMANDS)
+	/*
+	auto data = get<1>(words);
+	switch (type)
 	{
-		// 大小文字区別せず文字列を比較
-		if (_strnicmp(pattern.c_str(), command, pattern.length()) == 0)
-			return cnt;
-
-		cnt++;
+	case PLAYER:
+		header.player = stoi(data);
+		break;
+	case GENRE:
+		header.genre = data;
+		break;
+	case TITLE:
+		header.title = data;
+		break;
+	case ARTIST:
+		header.artist = data;
+		break;
+	case BPM:
+		header.bpm = stoi(data);
+		break;
+	case PLAYLEVEL:
+		header.playLevel = stoi(data);
+		break;
+	case RANK:
+		header.rank = stoi(data);
+		break;
+	case VOLWAV:
+		header.volWav = stoi(data);
+		break;
+	case TOTAL:
+		header.total = stoi(data);
+		break;
+	case WAV:
+		auto index = get<0>(words).substr(3,2);
+		header.wav.at(index) = stoi(data);
+		break;
+	case BMP:
+		auto index = get<0>(words).substr(3, 2);
+		header.bmp.at(index) = stoi(data);
+		break;
+	case STAGEFILE:
+		header.stageFile = data;
+		break;
+	case MIDIFILE:
+		break;
+	case OBJECT:
+		break;
+	default:
+		
 	}
-
-	// どれにも当てはまらなければ判別不可能文字として返す
-	return UNKNOWN;
+	*/
 }
