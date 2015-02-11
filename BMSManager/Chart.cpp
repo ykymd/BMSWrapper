@@ -126,5 +126,19 @@ void Chart::setData(int type, int channel, string data)
 
 void Chart::setObject(int measure, int channel, string data)
 {
-
+	switch (channel)
+	{
+	case 1:
+		backChorus.push_back(BackChorus(measure, data));
+		break;
+	case 2:
+		barMagni.push_back(BarMagni(measure, stof(data)));
+		break;
+	case 3:
+		bpmChange.push_back(BPMChange(measure, stoi(data)));
+		break;
+	case 6:
+		poorBmpChange.push_back(BMPChange(measure, data));
+		break;
+	}
 }

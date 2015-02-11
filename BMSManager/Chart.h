@@ -48,7 +48,7 @@ namespace BMS {
 		vector<BackChorus> backChorus;	// チャンネル01
 		vector<BarMagni> barMagni;		// チャンネル02
 		vector<BPMChange> bpmChange;	// チャンネル03
-		vector<BGAChange> bgaChange;	// チャンネル04
 		vector<BMPChange> poorBmpChange;// チャンネル06
+
 	};
 }
